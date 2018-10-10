@@ -53,6 +53,78 @@ where [UserName_] LIKE @UserName+'%'", TestPrinter3, SQLType.TSql);
             StatementFound |= context.select_statement() != null;
             base.EnterDml_clause(context);
         }
+
+        private enum JoinMode
+        {
+            Undefined,
+            Where,
+            Join
+        };
+        private JoinMode mode;
+        private enum BranchType
+        {
+            Select,
+            Table_sources,
+            Search_condition
+            //Join
+        };
+        private BranchType branch;
+
+        private string alias = "";
+
+        public override void EnterQuery_specification(TSqlParser.Query_specificationContext ctx)
+        {
+            mode = JoinMode.Undefined;
+        }
+        public override void EnterTable_sources(TSqlParser.Table_sourcesContext ctx)
+        {
+            if (ctx.ChildCount > 1)
+                mode = JoinMode.Where;
+            branch = BranchType.Table_sources;
+        }
+        public override void EnterTable_source_item_joined([NotNull] TSqlParser.Table_source_item_joinedContext ctx)
+        {
+            if ((mode == JoinMode.Undefined & ctx.ChildCount == 1) || (mode == JoinMode.Where))
+                return;
+            mode = JoinMode.Join;
+            branch = BranchType.Table_sources;
+        }
+        public override void EnterTable_name_with_hint([NotNull] TSqlParser.Table_name_with_hintContext ctx)
+        {
+            if (mode == JoinMode.Undefined)
+                return;
+            if (branch == BranchType.Table_sources)
+                Console.WriteLine(branch.ToString());
+            alias = "";
+        }
+        public override void EnterTable_name([NotNull] TSqlParser.Table_nameContext ctx)
+        {
+            if (branch == BranchType.Search_condition || branch == BranchType.Select || mode == JoinMode.Undefined)
+                return;
+            Console.WriteLine(ctx.GetText());
+        }
+        public override void EnterTable_alias([NotNull] TSqlParser.Table_aliasContext ctx)
+        {
+            if (branch == BranchType.Search_condition || branch == BranchType.Select | mode == JoinMode.Undefined)
+                return;
+            alias = ctx.GetChild(0).GetText();
+            Console.WriteLine("alias=" + alias);
+        }
+        public override void EnterSearch_condition([NotNull] TSqlParser.Search_conditionContext ctx)
+        {
+            if (mode == JoinMode.Undefined)
+                return;
+            branch = BranchType.Search_condition;
+            Console.WriteLine("Search_condition");
+            Console.WriteLine(ctx.GetText());
+            return;
+        }
+        public override void EnterSelect_statement([NotNull] TSqlParser.Select_statementContext ctx)
+        {
+            Console.WriteLine("Select_statement");
+            branch = BranchType.Select;
+            return;
+        }
     }
 
     public class WherePrinter : TSqlParserBaseListener
