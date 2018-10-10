@@ -13,7 +13,19 @@ namespace SqlParserAntlr
         static void Main(string[] args)
         {
             var TestPrinter1 = new Printer();
-            Parser.Parse("SELECT * FROM Somewhere", TestPrinter1, SQLType.TSql);
+            Parser.Parse(@"select *
+from t1, t2
+where t1.id = t2.id
+
+SELECT p.*
+FROM Production.Product AS p
+ORDER BY Name ASC;
+GO
+
+select *
+from zxc as t1
+    inner join qwe t2 on t1.id = t2.id
+    inner join asd t3 on t3.id = t2.id", TestPrinter1, SQLType.TSql);
             Console.WriteLine(TestPrinter1.StatementFound);
             TestPrinter1 = new Printer();
             Parser.Parse("ALTER TABLE [dbo].[SelectOption_] ADD FOREIGN KEY ([User_Creator_ID_]) REFERENCES [dbo].[User_]([ID_])", TestPrinter1, SQLType.TSql);
