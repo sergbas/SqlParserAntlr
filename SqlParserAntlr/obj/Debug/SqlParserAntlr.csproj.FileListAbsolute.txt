@@ -1,0 +1,10 @@
+C:\Projects\SqlParserAntlr\SqlParserAntlr\obj\Debug\SqlParserAntlr.csproj.CoreCompileInputs.cache
+C:\Projects\SqlParserAntlr\SqlParserAntlr\bin\Debug\SqlParserAntlr.exe.config
+C:\Projects\SqlParserAntlr\SqlParserAntlr\bin\Debug\SqlParserAntlr.exe
+C:\Projects\SqlParserAntlr\SqlParserAntlr\bin\Debug\SqlParserAntlr.pdb
+C:\Projects\SqlParserAntlr\SqlParserAntlr\bin\Debug\Antlr4.Runtime.Standard.dll
+C:\Projects\SqlParserAntlr\SqlParserAntlr\bin\Debug\Antlr4.Runtime.Standard.xml
+C:\Projects\SqlParserAntlr\SqlParserAntlr\obj\Debug\SqlParserAntlr.csproj.CopyComplete
+C:\Projects\SqlParserAntlr\SqlParserAntlr\obj\Debug\SqlParserAntlr.exe
+C:\Projects\SqlParserAntlr\SqlParserAntlr\obj\Debug\SqlParserAntlr.pdb
+C:\Projects\SqlParserAntlr\SqlParserAntlr\obj\Debug\SqlParserAntlr.csprojAssemblyReference.cache
