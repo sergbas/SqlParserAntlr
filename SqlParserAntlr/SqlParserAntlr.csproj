@@ -49,14 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JsParser\JavaScriptBaseLexer.cs" />
-    <Compile Include="JsParser\JavaScriptBaseParser.cs" />
-    <Compile Include="JsParser\JavaScriptLexer.cs" />
-    <Compile Include="JsParser\JavaScriptParser.cs" />
-    <Compile Include="JsParser\JavaScriptParserBaseListener.cs" />
-    <Compile Include="JsParser\JavaScriptParserBaseVisitor.cs" />
-    <Compile Include="JsParser\JavaScriptParserListener.cs" />
-    <Compile Include="JsParser\JavaScriptParserVisitor.cs" />
     <Compile Include="SqlParser\CaseChangingCharStream.cs" />
     <Compile Include="SqlParser\Parser.cs" />
     <Compile Include="Program.cs" />
