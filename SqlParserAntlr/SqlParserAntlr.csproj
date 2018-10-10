@@ -49,17 +49,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CaseChangingCharStream.cs" />
-    <Compile Include="Parser.cs" />
+    <Compile Include="JsParser\JavaScriptBaseLexer.cs" />
+    <Compile Include="JsParser\JavaScriptBaseParser.cs" />
+    <Compile Include="JsParser\JavaScriptLexer.cs" />
+    <Compile Include="JsParser\JavaScriptParser.cs" />
+    <Compile Include="JsParser\JavaScriptParserBaseListener.cs" />
+    <Compile Include="JsParser\JavaScriptParserBaseVisitor.cs" />
+    <Compile Include="JsParser\JavaScriptParserListener.cs" />
+    <Compile Include="JsParser\JavaScriptParserVisitor.cs" />
+    <Compile Include="SqlParser\CaseChangingCharStream.cs" />
+    <Compile Include="SqlParser\Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQLType.cs" />
-    <Compile Include="TSqlLexer.cs" />
-    <Compile Include="TSqlParser.cs" />
-    <Compile Include="TSqlParserBaseListener.cs" />
-    <Compile Include="TSqlParserBaseVisitor.cs" />
-    <Compile Include="TSqlParserListener.cs" />
-    <Compile Include="TSqlParserVisitor.cs" />
+    <Compile Include="SqlParser\SQLType.cs" />
+    <Compile Include="SqlParser\TSqlLexer.cs" />
+    <Compile Include="SqlParser\TSqlParser.cs" />
+    <Compile Include="SqlParser\TSqlParserBaseListener.cs" />
+    <Compile Include="SqlParser\TSqlParserBaseVisitor.cs" />
+    <Compile Include="SqlParser\TSqlParserListener.cs" />
+    <Compile Include="SqlParser\TSqlParserVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
